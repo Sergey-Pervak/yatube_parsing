@@ -7,6 +7,10 @@
 pip install scrapy
 ```
 
+```bash
+pip install sqlalchemy
+```
+
 2. Создание проекта:
 ```bash
 scrapy startproject yatube_parsing .
