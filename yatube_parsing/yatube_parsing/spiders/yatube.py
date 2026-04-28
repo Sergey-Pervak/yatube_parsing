@@ -1,4 +1,5 @@
 import scrapy
+from yatube_parsing.items import YatubeParsingItem
 
 
 class YatubeSpider(scrapy.Spider):
@@ -16,11 +17,18 @@ class YatubeSpider(scrapy.Spider):
             ).strip()
             date = card.css('small.text-muted::text').get()
             # group = card.css('a.group_link::text').get()
-            yield {
+            # yield {
+            #     'author': author,
+            #     'text': full_text,
+            #     'date': date
+            # }
+
+            data = {
                 'author': author,
                 'text': full_text,
                 'date': date
             }
+            yield YatubeParsingItem(data)
 
         # next_page = response.css('li.page-item a.page-link:contains("Следующая »")::attr(href)').get()
         next_page = response.xpath("//a[contains(., 'Следующая')]/@href").get()
