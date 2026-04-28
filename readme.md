@@ -1,0 +1,23 @@
+# Проект Yatube parsing
+
+### Основные команды
+
+1. Установка библиотеки:
+```bash
+pip install scrapy
+```
+
+2. Создание проекта:
+```bash
+scrapy startproject yatube_parsing .
+```
+
+3. Создание "Паука":
+```bash
+scrapy genspider yatube 158.160.212.51 
+```
+
+4. Запуск работы "Паука":
+```bash
+    scrapy crawl yatube -o django.csv
+```
